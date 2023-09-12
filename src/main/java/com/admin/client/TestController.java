@@ -17,7 +17,7 @@ public class TestController {
 
     @GetMapping
     public String getProperty() {
-        return envShortName + " - " + envFullName;
+        return envShortName + " -> " + envFullName;
     }
 }
 

@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
 
-    @Value("${my.property}")
-    private String myProperty;
+    @Value("${env.name.full}")
+    private String envFullName;
+
+    @Value("${env.name.short}")
+    private String envShortName;
 
     @GetMapping
     public String getProperty() {
-        return myProperty;
+        return envShortName + " - " + envFullName;
     }
 }
 

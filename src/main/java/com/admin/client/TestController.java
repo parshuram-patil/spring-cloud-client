@@ -11,15 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
 
-    @Value("${env.name.full}")
-    private String envFullName;
+    @Value("${executor.pool.core-size}")
+    private String corePoolSize;
 
-    @Value("${env.name.short}")
-    private String envShortName;
+    @Value("${executor.pool.max-size}")
+    private String maxPoolSize;
+
+    @Value("${executor.pool.capacity}")
+    private String capacity;
 
     @GetMapping
     public String getProperty() {
-        return envShortName + " -> " + envFullName;
+        return corePoolSize + " -> " + maxPoolSize + " -> " + capacity;
     }
 }
 
